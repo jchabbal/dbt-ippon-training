@@ -1,4 +1,4 @@
 {{ config(materialized='table') }}
 
 select distinct *
-from {{ mockable_source('source_name', 'orders') }}
+from {{ mockable_source('source_name', 'orders', 'seed_orders') }}
