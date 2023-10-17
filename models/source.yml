@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: source_name
+    database: db_dbt_jchabbal_dev
+    schema: source
+    tables:
+      - name: orders
+        description: This source table gives info on the orders.
+        columns:
+          - name: identifier
+            tests:
+              - unique
+              - not_null
+          - name: restaurant_identifier
+            tests:
+              - not_null
+          - name: payment_method
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ["cash","card","meal_ticket","cheque"]
+          - name: amount
+          - name: created_at
+            tests:
+              - not_null
+      - name: restaurants
+      - name: fuzzy_orders
+      - name: dishes
+      
